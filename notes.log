@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  10 AUG 2015 01:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  10 AUG 2015 16:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2309,30 +2309,40 @@ Package pdftex.def Info: complex_number_diagram-01.png used on input line 654.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 703.
-Package mdframed Info: Not enough space on this page on input line 709.
+Package mdframed Info: Not enough space on this page on input line 714.
  [14]
-Package mdframed Info: Not enough space on this page on input line 709.
+Package mdframed Info: Not enough space on this page on input line 714.
  <complex_number_diagram-03.png, id=398, 310.0383pt x 291.9708pt>
 File: complex_number_diagram-03.png Graphic file (type png)
 
 <use complex_number_diagram-03.png>
-Package pdftex.def Info: complex_number_diagram-03.png used on input line 720.
+Package pdftex.def Info: complex_number_diagram-03.png used on input line 726.
 (pdftex.def)             Requested size: 216.81pt x 204.17767pt.
- [15 <./complex_number_diagram-03.png (PNG copy)>] [16]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 734.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 734.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 732.
+ [15 <./complex_number_diagram-03.png (PNG copy)>] <complex_number_diagram-02.p
+ng, id=409, 310.0383pt x 319.6743pt>
+File: complex_number_diagram-02.png Graphic file (type png)
+
+<use complex_number_diagram-02.png>
+Package pdftex.def Info: complex_number_diagram-02.png used on input line 761.
+(pdftex.def)             Requested size: 216.81pt x 223.55096pt.
+ [16 <./complex_number_diagram-02.png (PNG copy)>] [17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 785.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 785.
  (./notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 734.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 734.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 785.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 785.
 Package rerunfilecheck Info: File `notes.out' has not changed.
 (rerunfilecheck)             Checksum: FFDB4E2AEBE39453057F65F17F249005;2465.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 734.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 785.
  ) 
 Here is how much of TeX's memory you used:
- 25618 strings out of 493117
- 481266 string characters out of 6135433
- 564035 words of memory out of 5000000
- 28529 multiletter control sequences out of 15000+600000
+ 25632 strings out of 493117
+ 481562 string characters out of 6135433
+ 564137 words of memory out of 5000000
+ 28535 multiletter control sequences out of 15000+600000
  15985 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,15n,80p,10404b,904s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2361,10 +2371,10 @@ st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf-dist
 fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2014/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on notes.pdf (16 pages, 421794 bytes).
+Output written on notes.pdf (17 pages, 466624 bytes).
 PDF statistics:
- 520 PDF objects out of 1000 (max. 8388607)
- 467 compressed objects within 5 object streams
- 131 named destinations out of 1000 (max. 500000)
- 326 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 533 PDF objects out of 1000 (max. 8388607)
+ 478 compressed objects within 5 object streams
+ 138 named destinations out of 1000 (max. 500000)
+ 331 words of extra memory for PDF output out of 10000 (max. 10000000)
 

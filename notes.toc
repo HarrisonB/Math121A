@@ -27,11 +27,11 @@
 \contentsline {subsubsection}{\numberline {4.3.2}Lagrange Multipliers}{13}{subsubsection.4.3.2}
 \contentsline {section}{\numberline {5}Complex Analysis}{13}{section.5}
 \contentsline {subsection}{\numberline {5.1}Complex Numbers}{13}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Complex Differentiation}{16}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Cauchy-Riemann Equations}{16}{subsubsection.5.2.1}
-\contentsline {subsection}{\numberline {5.3}Contour Integration}{16}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Residue Calculus}{16}{subsection.5.4}
-\contentsline {section}{\numberline {6}Harmonic Analysis}{16}{section.6}
-\contentsline {subsection}{\numberline {6.1}Fourier Series}{16}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}The Fourier Transform}{16}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}The Laplace Transform}{16}{subsection.6.3}
+\contentsline {subsection}{\numberline {5.2}Complex Differentiation}{17}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Cauchy-Riemann Equations}{17}{subsubsection.5.2.1}
+\contentsline {subsection}{\numberline {5.3}Contour Integration}{17}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Residue Calculus}{17}{subsection.5.4}
+\contentsline {section}{\numberline {6}Harmonic Analysis}{17}{section.6}
+\contentsline {subsection}{\numberline {6.1}Fourier Series}{17}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}The Fourier Transform}{17}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}The Laplace Transform}{17}{subsection.6.3}

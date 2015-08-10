@@ -701,13 +701,19 @@ Thus, if $z \neq 0$, then
 \inv{z} = \frac{x}{x^2+y^2} + i \frac{-y}{x^2+y^2}
 \]
 \begin{definitionSR}
-The \textit{complex conjugate} of a complex number $z$ (or often times, simply the \textit{conjugate} of $z$), denoted\footnote{Physicists tend to use the $\conj{z}$ notation, while mathematicians use the $\conjugate{z}$ notation.} with either a star or overbar (e.g.\ $\conj{z}$ or $\conjugate{z}$), is the negation of $z$'s imaginary part. That is, if $z = x+iy$, then
+The \textit{complex conjugate} of a complex number $z$
+(or often times, simply the \textit{conjugate} of $z$),
+denoted\footnote{Physicists tend to use the $\conj{z}$ notation,
+while mathematicians use the $\conjugate{z}$ notation.}
+with either a star or overbar (e.g.\ $\conj{z}$ or $\conjugate{z}$),
+is the negation of $z$'s imaginary part. That is, if $z = x+iy$, then
 \[
 \conj{z} = x-iy.
 \]
 
 \end{definitionSR}
-Some important properties of the complex conjugate are as follows (assuming $z_1, z_2 \in \Complex$:
+Some important properties of the complex conjugate are as follows
+(assuming $z_1, z_2 \in \Complex$):
 \begin{itemize}
 \item $\conjugate{z_1+z_2} = \conjugate{z_1} + \conjugate{z_2}$
 \item $\conjugate{z_1 z_2} = \conjugate{z_1} \conjugate{z_2}$
@@ -720,8 +726,53 @@ Some important properties of the complex conjugate are as follows (assuming $z_1
 	\includegraphics[width=3in]{complex_number_diagram-03}
 \end{figure}
 \end{itemize}
-One can think of complex conjugation of a reflection a complex coordinate about the real axis; see Figure~\ref{fig:conjugate}.
+One can think of complex conjugation of a reflection a complex coordinate about the real axis;
+see Figure~\ref{fig:conjugate}.
 
+\begin{definitionSR}
+The \textit{absolute value} or \textit{magnitude} of a 
+complex number $z$, denoted $\abs{z}$, is the ``length'' of the Euclidean vector from the origin 
+to the point $z$ in the $\Complex$ plane. If $z=x+iy$ where $x,y \in \Reals$,
+\[
+\abs{z} = \sqrt{x^2 + y^2}
+\]
+\end{definitionSR}
+
+The absolute value of a complex number is a type of norm, specifically the
+\textit{Euclidean norm} or the $L^2$ \textit{norm}. 
+Some useful properties of the absolute value include:
+\begin{itemize}
+\item $\abs{z_1 z_2} = \abs{z_1} \abs{z_2}$
+\item $\abs{\inv{z}} = \frac{1}{\abs{z}}$
+\end{itemize}
+With these definitions, we can express the inverse of a complex number as
+\begin{equation}
+\inv{z} = \frac{\conj{z}}{\abs{z}^2}
+\end{equation}
+Or, equivalently
+\begin{equation}
+z \conj{z} = \abs{z}^2
+\end{equation}
+
+\begin{figure}[h]
+	\centering
+	\caption{The complex number $z$ in polar coordinates}
+	\label{fig:polar}
+	\includegraphics[width=3in]{complex_number_diagram-02}
+\end{figure}
+We can also express complex numbers with polar coordinates;
+see Figure~\ref{fig:polar}.  If we define $r=\abs{z}$
+and $\theta$ as the angle from the positive real axis to the Euclidean vector
+representation of $z$, then 
+\begin{align}
+x &= r \cos{\theta} \\
+y &= r \sin{\theta}
+\end{align}
+Using Euler's formula, which I will simply state here as 
+\[
+e^{i \theta} = \cos{\theta} + i \sin{\theta},
+\]
+we can also express the complex number $z$ as $z=r e^{i \theta}$.
 \subsection{Complex Differentiation}
 \subsubsection{Cauchy-Riemann Equations}
 \subsection{Contour Integration}
