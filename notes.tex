@@ -851,11 +851,31 @@ S(z) = \sum_{n=1}^{\infty} a_n (z - a) \qquad (a, a_n \in \Complex)
 \end{equation}
 There is some $R$ such that for
 \begin{align*}
-\abs{z-a} &< R, \quad S(z) \text{ converges} \\
-\abs{z-a} &> R, \quad S(z) \text{ diverges} \\
+\abs{z-a} &< R, \quad S(z)~\text{converges} \\
+\abs{z-a} &> R, \quad S(z)~\text{diverges} \\
 \end{align*}
 This power series will converge within this \textit{disk of convergence} and
 diverge outside of it.
+
+Note that we can still use some tests to determine convergence. The most common
+test to use in the complex case is the ratio test, which looks identical to the
+ratio test described earlier.
+
+For example, let us examine the \textit{complex exponential function}, i.e.\
+$e^z$. Now, from Taylor series, we know that we can express $e^x$ as
+\[
+e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots.
+\]
+This also holds true for complex arguments. That is, for $z \in \Complex$,
+\begin{equation}
+e^z = 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \ldots.
+\end{equation}
+But does this converge everywhere (as in the real case)? Let us use the ratio
+test.
+\begin{align*}
+\rho &= \lim_{n \to \infty} \abs{\frac{a_{n+1}}{a_n}}
+ &= \lim_{n \to \infty} \abs{\frac{z^{n+1}}{}}
+\end{align*}
 \subsection{Complex Differentiation}
 \subsubsection{Cauchy-Riemann Equations}
 \subsection{Contour Integration}
