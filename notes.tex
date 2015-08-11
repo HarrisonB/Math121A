@@ -60,6 +60,7 @@
 \DeclareMathOperator{\sign}{sign}
 \newcommand{\Reals}{\mathbb{R}}
 \newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Integers}{\mathbb{Z}}
 \newcommand{\ReP}[1]{
 	\mathrm{Re}\pqty{#1}
 }
@@ -773,6 +774,14 @@ Using Euler's formula, which I will simply state here as
 e^{i \theta} = \cos{\theta} + i \sin{\theta},
 \]
 we can also express the complex number $z$ as $z=r e^{i \theta}$.
+You might note that $\theta$ (known as the \textit{argument} of $z$)
+is not unique for a given $z$. For example,
+the points (expressed as $(r,\theta)$ coordinate pairs)
+$(2, \frac{\pi}{4})$ and $(2, \frac{9\pi}{4})$ refer to the same point in 
+$\Complex$. Thus, if we tried to create a function $\arg{z}$ such that
+if $z=e^{i \theta}$, $\arg{z} = \theta$,
+we would fail, as $\arg{z} = \theta 2n \pi$ 
+(where $n \in \Integers$) is also a perfectly valid equivalence.
 \subsection{Complex Differentiation}
 \subsubsection{Cauchy-Riemann Equations}
 \subsection{Contour Integration}
