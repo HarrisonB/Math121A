@@ -1,38 +1,38 @@
 \select@language {english}
 \contentsline {section}{\numberline {1}Notation}{2}{section.1}
 \contentsline {subsection}{\numberline {1.1}Screen \& Print Notation}{2}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Handwritten Notation}{3}{subsection.1.2}
-\contentsline {section}{\numberline {2}Series}{3}{section.2}
-\contentsline {subsection}{\numberline {2.1}Tests for Convergence}{4}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Preliminary Test}{4}{subsubsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.2}Integral Test}{4}{subsubsection.2.1.2}
+\contentsline {subsection}{\numberline {1.2}Handwritten Notation}{4}{subsection.1.2}
+\contentsline {section}{\numberline {2}Series}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Tests for Convergence}{5}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Preliminary Test}{5}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Integral Test}{5}{subsubsection.2.1.2}
 \contentsline {subsubsection}{\numberline {2.1.3}Comparison Principle}{5}{subsubsection.2.1.3}
 \contentsline {subsubsection}{\numberline {2.1.4}Special Comparison Principle}{5}{subsubsection.2.1.4}
-\contentsline {subsubsection}{\numberline {2.1.5}Ratio Test}{5}{subsubsection.2.1.5}
-\contentsline {subsubsection}{\numberline {2.1.6}Alternating Series Test}{5}{subsubsection.2.1.6}
-\contentsline {subsection}{\numberline {2.2}Power Series}{5}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.1.5}Ratio Test}{6}{subsubsection.2.1.5}
+\contentsline {subsubsection}{\numberline {2.1.6}Alternating Series Test}{6}{subsubsection.2.1.6}
+\contentsline {subsection}{\numberline {2.2}Power Series}{6}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}Taylor Series}{6}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Asymptotic Notation}{6}{subsubsection.2.2.2}
-\contentsline {subsection}{\numberline {2.3}Error of Series Approximations}{7}{subsection.2.3}
-\contentsline {section}{\numberline {3}Linear Algebra}{8}{section.3}
-\contentsline {subsection}{\numberline {3.1}Notation}{8}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Inner Product Spaces}{8}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Coordinates and Change of Bases}{9}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Diagonalization}{9}{subsection.3.4}
-\contentsline {section}{\numberline {4}Partial Differentiation}{10}{section.4}
-\contentsline {subsection}{\numberline {4.1}Implicit Partial Differentiation}{11}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}The Chain Rule}{11}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Optimization}{13}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Gradient}{13}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}Lagrange Multipliers}{13}{subsubsection.4.3.2}
-\contentsline {section}{\numberline {5}Complex Analysis}{13}{section.5}
-\contentsline {subsection}{\numberline {5.1}Complex Numbers}{13}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Complex Series, $e^z$, and the Logarithm}{17}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Complex Differentiation}{17}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Cauchy-Riemann Equations}{17}{subsubsection.5.3.1}
-\contentsline {subsection}{\numberline {5.4}Contour Integration}{17}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Residue Calculus}{17}{subsection.5.5}
-\contentsline {section}{\numberline {6}Harmonic Analysis}{17}{section.6}
-\contentsline {subsection}{\numberline {6.1}Fourier Series}{17}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}The Fourier Transform}{17}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}The Laplace Transform}{17}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {2.2.2}Asymptotic Notation}{7}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}Error of Series Approximations}{8}{subsection.2.3}
+\contentsline {section}{\numberline {3}Linear Algebra}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Notation}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Inner Product Spaces}{9}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Coordinates and Change of Bases}{10}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Diagonalization}{10}{subsection.3.4}
+\contentsline {section}{\numberline {4}Partial Differentiation}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Implicit Partial Differentiation}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}The Chain Rule}{13}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Optimization}{14}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Gradient}{14}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Lagrange Multipliers}{14}{subsubsection.4.3.2}
+\contentsline {section}{\numberline {5}Complex Analysis}{14}{section.5}
+\contentsline {subsection}{\numberline {5.1}Complex Numbers}{14}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Complex Series, $e^z$, and the Logarithm}{19}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Complex Differentiation}{20}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Cauchy-Riemann Equations}{20}{subsubsection.5.3.1}
+\contentsline {subsection}{\numberline {5.4}Contour Integration}{20}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Residue Calculus}{20}{subsection.5.5}
+\contentsline {section}{\numberline {6}Harmonic Analysis}{20}{section.6}
+\contentsline {subsection}{\numberline {6.1}Fourier Series}{20}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}The Fourier Transform}{20}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}The Laplace Transform}{20}{subsection.6.3}

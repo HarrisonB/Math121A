@@ -1,5 +1,10 @@
-\documentclass[a4paper]{article}
-
+%\documentclass[a4paper]{article}
+\documentclass[10pt]{scrartcl}
+\setkomafont{disposition}{\bfseries}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palladio needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -742,7 +747,7 @@ Some important properties of the complex conjugate are as follows
 (assuming $z_1, z_2 \in \Complex$):
 \begin{itemize}
 \item $\conjugate{z_1+z_2} = \conjugate{z_1} + \conjugate{z_2}$
-\item $\conjugate{z_1 z_2} = \conjugate{z_1} \conjugate{z_2}$
+\item $\conjugate{z_1 \cdot  z_2} = \conjugate{z_1} \cdot \conjugate{z_2}$
 \item $\conjugate{\inv{z_1}} = \inv{(\conjugate{z_1})}$
 
 \begin{figure}[h]
@@ -819,7 +824,38 @@ The functions $\arg{z}$ and $\Arg{z}$ have the following properties:
 \item $\arg{\inv{z}} = - \arg{z}$
 \end{itemize}
 \subsection{Complex Series, $e^z$, and the Logarithm}
+Overall, complex series behave similarly to their real counterparts.
+Let's define the infinite complex series $S$ as 
+\begin{equation}
+\sum_{n=1}^{\infty} a_n = S \qquad (a_n \in \Complex)
+\end{equation}
+If $a_n = x_n + i y_n$ (where $x_n, y_n \in \Reals$), consider
+\[
+X_N = \sum_{n=1}^{N} x_n, \qquad Y_N = \sum_{n=1}^{N} y_n.
+\]
+Let's then define
+\[
+X = \lim_{N \to \infty} X_N, \qquad Y = \lim_{N \to \infty} Y_N.
+\]
+Thus, $S$ exists (i.e.\ the series converges) iff $X$ and $Y$ exist.
 
+The concept of absolute convergence also applies to complex series.
+That is, if $\sum \abs{a_n}$ converges, then $ \sum a_n$ converges absolutely. 
+One can derive this from the fact that $\abs{x_n} \leq \abs{a_n} \wedge
+\abs{y_n} \leq \abs{a_n}$.
+
+Complex power series also behave similarly to real power series. The generic
+complex power series about a point $a$ can be defined as
+\begin{equation}
+S(z) = \sum_{n=1}^{\infty} a_n (z - a) \qquad (a, a_n \in \Complex)
+\end{equation}
+There is some $R$ such that for
+\begin{align*}
+\abs{z-a} &< R, \quad S(z) \text{ converges} \\
+\abs{z-a} &> R, \quad S(z) \text{ diverges} \\
+\end{align*}
+This power series will converge within this \textit{disk of convergence} and
+diverge outside of it.
 \subsection{Complex Differentiation}
 \subsubsection{Cauchy-Riemann Equations}
 \subsection{Contour Integration}
