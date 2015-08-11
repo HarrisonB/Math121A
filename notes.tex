@@ -81,6 +81,7 @@
 }
 \newcommand*{\conjugate}[1]{\overline{#1}}
 \newcommand*{\conj}[1]{{#1}^*}
+\DeclareMathOperator{\Arg}{Arg}
 %\newcommand{\ip}[2]{
 %	\langle {#1} | {#2} \rangle
 %}
@@ -405,19 +406,24 @@ Next we have the \textit{Triangle Inequality}:
 \end{equation}
 Lastly we have the \textit{Pythagorean theorem}:
 \begin{equation}
-\braket{\ve{p}}{\ve{q}} = 0 \iff \norm{\ve{p}}^2 + \norm{\ve{q}}^2 = \norm{\ve{p} + \ve{q}}^2.
+\braket{\ve{p}}{\ve{q}} = 0 \iff \norm{\ve{p}}^2 + \norm{\ve{q}}^2 =
+\norm{\ve{p} + \ve{q}}^2.
 \end{equation}
 
-For our purposes, there are only four important inner products to concern ourselves with. When we're dealing with vectors in $\Reals^n$, we will use the familiar \textit{dot product}; if $\vb{x}, \vb{y} \in \Reals^n$, then 
+For our purposes, there are only four important inner products to concern
+ourselves with. When we're dealing with vectors in $\Reals^n$, we will use the
+familiar \textit{dot product}; if $\vb{x}, \vb{y} \in \Reals^n$, then 
 \begin{equation}
 \braket{\vb{x}}{\vb{y}} = \vb{x}^T \vb{y} = \sum_{i=1}^n x_i y_i
 \end{equation}
-With vectors  $\vb{x}, \vb{y} \in \Complex^n$ we have a similarly defined inner product defined thusly:
+With vectors  $\vb{x}, \vb{y} \in \Complex^n$ we have a similarly defined inner
+product defined thusly:
 \begin{equation}
 \braket{\vb{x}}{\vb{y}} = \vb{x}^\dagger \vb{y} = \sum_{i=1}^n x_i^* y_i
 \end{equation}
 
-For functions/vectors in $L^2(X)$ meaning\footnote{where $X$ is most commonly $[a,b]$ or $\Reals$} the set of functions $\{f_i\}$ that satisfy 
+For functions/vectors in $L^2(X)$ meaning\footnote{where $X$ is most commonly
+$[a,b]$ or $\Reals$} the set of functions $\{f_i\}$ that satisfy 
 \[
 \int_X |f_i(x)|^2\, dx < \infty 
 \]
@@ -465,7 +471,8 @@ From the above, we can see
 
 \subsection{Diagonalization}
 \begin{definitionSR}
-To \textit{diagonalize} a matrix $A$ is to express it as $A=CD\inv{C}$, where $C$ is an invertible matrix and $D$ is a diagonal matrix.
+To \textit{diagonalize} a matrix $A$ is to express it as $A=CD\inv{C}$, where
+$C$ is an invertible matrix and $D$ is a diagonal matrix.
 \end{definitionSR}
 TODO: How to diagonalize a matrix.
 
@@ -514,7 +521,8 @@ An \textit{unitary matrix} is a complex matrix which has the following (mutually
 \begin{definitionSR}
 A \textit{partial derivative} is the multivariate analogue of a traditional derivative.
 \[
-\pdv{f}{x_i} = \lim_{\Delta x_i \to 0} \frac{f(x_1,\cdots, x_i + \Delta x_i, \cdots, x_n) - f(x_1,\cdots, x_i, \cdots, x_n)}{\Delta x_i}
+\pdv{f}{x_i} = \lim_{\Delta x_i \to 0} \frac{f(x_1,\cdots, x_i + \Delta x_i,
+\cdots, x_n) - f(x_1,\cdots, x_i, \cdots, x_n)}{\Delta x_i}
 \]
 \end{definitionSR}
 
@@ -524,11 +532,13 @@ E.g.\ $f(x,y) = 3x^2\cos(y)$
 \pdv{f}{x} = 6x\cos(y), \quad  \pdv{f}{y} = -3x^2 \sin(y)
 \]
 
-A function is \textit{differentiable} at a point if it is well approximated by a linear function in the neighborhood of that point.
+A function is \textit{differentiable} at a point if it is well approximated by
+a linear function in the neighborhood of that point.
 
 Let's say we have a function $z = f(x,y)$. We can then approximate small changes in $z$ like so:
 \[
-\Delta z = f(x_0 + \Delta x, y_0 + \Delta y) - f(x_0,y_0) = \pdv{f}{x} \Delta x + \pdv{f}{y} \Delta y + o(\Delta x) + o(\Delta y)
+\Delta z = f(x_0 + \Delta x, y_0 + \Delta y) - f(x_0,y_0) = \pdv{f}{x} \Delta x
++ \pdv{f}{y} \Delta y + o(\Delta x) + o(\Delta y)
 \]
 
 Taking the limit of the above, we get the total differential
@@ -536,20 +546,27 @@ Taking the limit of the above, we get the total differential
 dz = \pdv{f}{x} dx + \pdv{f}{y} dy
 \end{equation}
 
-If we have more than 2 variables of concern in a problem, e.g.\ $z = f(x,y)$ and $z = g(x, \theta)$, 
+If we have more than 2 variables of concern in a problem, e.g.\ $z = f(x,y)$
+and $z = g(x, \theta)$, 
 then we can use a subscript to denote what variable(s) we are holding constant,
 \[
 \pdvc{z}{x}{\theta} = \pdv{g}{x}, \quad \pdvc{z}{x}{y} = \pdv{f}{x}
 \]
 
 \subsection{Implicit Partial Differentiation}
-Careful manipulation of total differentials can yield partial derivatives for complicated equations. For example, given $x^2 + y^2 + z^2 = 1$, what is $\pdvc{z}{x}{y}$?
-We can manipulate differentials as if they were algebraic quantities to generate this derivative, 
+Careful manipulation of total differentials can yield partial derivatives for
+complicated equations. For example, given $x^2 + y^2 + z^2 = 1$, what is
+$\pdvc{z}{x}{y}$?
+We can manipulate differentials as if they were algebraic quantities to
+generate this derivative, 
 but we must understand that ``under the hood,'' 
-we are really manipulating these ``$\Delta x$'' type quantities (which are \emph{not} symbolic in the same manner as differentials)
-and then subsequently taking the \emph{limit} as described in the definition of the partial derivative.
+we are really manipulating these ``$\Delta x$'' type quantities (which are
+\emph{not} symbolic in the same manner as differentials)
+and then subsequently taking the \emph{limit} as described in the definition of
+the partial derivative.
 
-If we consider this equation $x^2 + y^2 + z^2 = 1$ a constant function, that is, $F(x,y,z)=x^2 + y^2 + z^2 = 1$, then
+If we consider this equation $x^2 + y^2 + z^2 = 1$ a constant function, that
+is, $F(x,y,z)=x^2 + y^2 + z^2 = 1$, then
 \[
 dF = 2x\,dx + 2y\,dy + 2z\,dz
 \]
@@ -557,7 +574,8 @@ Now, we are holding $y$ constant, so $\Delta y = 0$, thus we are interested in
 \[
 dF_y = 2x\,dx + 2z\,dz
 \]
-where the subscript $y$ denotes that we are taking $y$ as constant. Since $F$ is a constant function, its differential must be zero. Thus,
+where the subscript $y$ denotes that we are taking $y$ as constant. Since $F$
+is a constant function, its differential must be zero. Thus,
 \begin{align*}
 2x\,dx + 2z\,dz &= 0 \\
 2x\,dx &= -2z\,dz\\
@@ -584,11 +602,13 @@ where the subscript $y$ denotes that we are taking $y$ as constant. Since $F$ is
 	\end{subfigure}
 \end{figure}
 
-Just as in single variable calculus, when we differentiate compositions of two or more functions, we have to use the chain rule.
+Just as in single variable calculus, when we differentiate compositions of two
+or more functions, we have to use the chain rule.
 However, the process is slightly more complicated than in the single-variable case. 
 Again, we are going to utilize the \textit{total differential}.
 While we \emph{can} use a formula like we do in the single-variable case,
-it is fairly cumbersome, difficult to remember, and not as illuminating as the alternative.
+it is fairly cumbersome, difficult to remember, and not as illuminating as the
+alternative.
 
 Suppose we have $z = z(x,y)$, $x = x(s,t)$, and $y=y(s,t)$. 
 We know from earlier that
@@ -617,7 +637,8 @@ If we bring the $ds$ to the other side (by utilizing the fact we are manipulatin
 \pdvc{z}{s}{t}=  \pdv{z}{x} \pdv{x}{s} + \pdv{z}{y} \pdv{y}{s}
 \end{equation}
 As you can see, the chain rule can be understood as the ``chains'' of dependence between variables.
-If you look at Figure~\ref{fig:chain2} on page~\pageref{fig:chain2}, you can see the tree-like structure of the system of variables. 
+If you look at Figure~\ref{fig:chain2} on page~\pageref{fig:chain2}, you can
+see the tree-like structure of the system of variables. 
 Each term represents a pathway down from the function of interest to the independent variable that is not fixed.
 Each line connecting two variables represents a derivative of the higher w.r.t.\ the lower.
 
@@ -643,14 +664,16 @@ The \emph{set of complex numbers}, denoted $\Complex$, can be defined as
 \Complex = \Bqty{x+iy ~ | ~ x,y \in \Reals}
 \]
 \end{definitionSR}
-We also define the functions $\ReP{x+iy}=x$ and $\ImP{x+iy}=y$ to work with the real and imaginary parts more easily.
-Two complex numbers are equal if and only if their corresponding real and imaginary parts are both equal. That is,
+We also define the functions $\ReP{x+iy}=x$ and $\ImP{x+iy}=y$ to work with the
+real and imaginary parts more easily.
+Two complex numbers are equal if and only if their corresponding real and
+imaginary parts are both equal. That is,
 \[
 z_1 = z_2 \iff \ReP{z_1} = \ReP{z_2} \wedge \ImP{z_1} = \ImP{z_2}.
 \]
 \begin{figure}[h]
 	\centering
-	\caption{The complex conjugate of $z$, visualized}
+	\caption{The complex number $z$ as a Eulclidean vector.}
 	\label{fig:complexAddition}
 	\includegraphics[width=3in]{complex_number_diagram-01}
 \end{figure}
@@ -677,12 +700,14 @@ Expanding this out gives us
 (xa - yb) + i(ya + xb) = 1 + 0i
 \]
 From the definition of equality for complex numbers that we saw earlier,
-the real and imaginary parts of two complex numbers must be equal if the the complex numbers are to be equal. Thus,
+the real and imaginary parts of two complex numbers must be equal if the the
+complex numbers are to be equal. Thus,
 \begin{align*}
 xa - yb &= 1 \\
 ya + xb &= 0
 \end{align*}
-Noting that this is simply a system of linear equations, we can put it into matrix form,
+Noting that this is simply a system of linear equations, we can put it into
+matrix form,
 \[
 \pmqty{x & -y \\ y & x} \pmqty{a \\ b} = \pmqty{1 \\ 0}
 \]
@@ -780,8 +805,21 @@ the points (expressed as $(r,\theta)$ coordinate pairs)
 $(2, \frac{\pi}{4})$ and $(2, \frac{9\pi}{4})$ refer to the same point in 
 $\Complex$. Thus, if we tried to create a function $\arg{z}$ such that
 if $z=e^{i \theta}$, $\arg{z} = \theta$,
-we would fail, as $\arg{z} = \theta 2n \pi$ 
-(where $n \in \Integers$) is also a perfectly valid equivalence.
+we would fail, as $\arg{z} = \theta + 2 \pi$ 
+is also perfectly valid.
+However, we \emph{can} define $\arg{z}$ as a ``\textit{multivalued} function.''
+Thus, for a given $z=e^{i\theta}$, $\arg{z} = \theta + 2n\pi$
+(where $n \in \Integers$).
+If we restrict the range of $\arg{z}$ to $[0, 2\pi)$, 
+it becomes an honest-to-god \emph{function}, which we denote as $\Arg{z}$.
+
+The functions $\arg{z}$ and $\Arg{z}$ have the following properties:
+\begin{itemize}
+\item $\arg{z_1 z_2} = \arg{z_1} + \arg{z_2}$
+\item $\arg{\inv{z}} = - \arg{z}$
+\end{itemize}
+\subsection{Complex Series, $e^z$, and the Logarithm}
+
 \subsection{Complex Differentiation}
 \subsubsection{Cauchy-Riemann Equations}
 \subsection{Contour Integration}
