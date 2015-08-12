@@ -873,9 +873,26 @@ e^z = 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \ldots.
 But does this converge everywhere (as in the real case)? Let us use the ratio
 test.
 \begin{align*}
-\rho &= \lim_{n \to \infty} \abs{\frac{a_{n+1}}{a_n}}
- &= \lim_{n \to \infty} \abs{\frac{z^{n+1}}{}}
+\rho &= \lim_{n \to \infty} \abs{\frac{a_{n+1}}{a_n}} \\
+ &= \lim_{n \to \infty} \abs{\frac{z^{n+1}}{(n+1)!} \cdot \frac{n!}{z^n}} \\
+ &= \lim_{n \to \infty} \abs{\frac{z}{n+1}} \\
+ &= 0
 \end{align*}
+Thus, the series converges regardless of the value of $z$, 
+and therefore, converges everywhere on $\Complex$.
+
+Now, just to get some useful knowledge out of the way\ldots
+\begin{theoremSR}[De Moive's Theorem]
+\begin{align*}
+e^{in\theta} &= (\cos{\theta} + i \sin{\theta})^n \\
+\cos{n\theta} + i \sin{n\theta} &= (\cos{\theta} + i \sin{\theta})^n
+\end{align*}
+\end{theoremSR}
+This can be used to easily generate useful identites such as 
+\[
+\cos{3\theta} = \cos^3{\theta} - 3\cos{\theta}\sin^2{\theta}
+\]
+TODO: Stuff about roots and logs
 \subsection{Complex Differentiation}
 \subsubsection{Cauchy-Riemann Equations}
 \subsection{Contour Integration}
