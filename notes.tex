@@ -102,18 +102,24 @@
 \maketitle
 
 \begin{abstract}
-Notes for Math 121A based on lectures given by Dr.\ Nikhil Srivastava in Spring 2015 at UC Berkeley in Berkeley, California.
-The following notes assume basic knowledge of series, multivariable calculus and linear algebra; however, the first few sections are dedicated to
-the brief review of those topics.
+Notes for Math 121A based on lectures given by Dr.\ Nikhil Srivastava in Spring
+2015 at UC Berkeley in Berkeley, California.  The following notes assume basic
+knowledge of series, multivariable calculus and linear algebra; however, the
+first few sections are dedicated to the brief review of those topics.
 
-For those of you scientists and engineers who have taken up to linear algebra \& multivariable calculus \emph{but no further},
-I entreat you to continue reading. After the review, Sections~\ref{ComplexAnalysis} and~\ref{HarmonicAnalysis}
-(on Complex Analysis and Harmonic Analysis respectively) demonstrate the humbling power and beauty of higher-level mathematics. 
-While the topics are perhaps not expressed here with the rigor that would satisfy a mathematician,
-I hope that they can offer a stimulating preview of ``upper division'' mathematics.
+For those of you scientists and engineers who have taken up to linear algebra
+\& multivariable calculus \emph{but no further}, I entreat you to continue
+reading. After the review, Sections~\ref{ComplexAnalysis}
+and~\ref{HarmonicAnalysis} (on Complex Analysis and Harmonic Analysis
+respectively) demonstrate the humbling power and beauty of higher-level
+mathematics.  While the topics are perhaps not expressed here with the rigor
+that would satisfy a mathematician, I hope that they can offer a stimulating
+preview of ``upper division'' mathematics.
 
-Sections suffixed with an asterix, i.e.\ the ``*'' symbol, are generally ``optional'' in that they don't \emph{necessarily} 
-have applicability to the physical sciences. However, they are often quite beautiful and/or significant within pure mathematics.
+Sections suffixed with an asterix, i.e.\ the ``*'' symbol, are generally
+``optional'' in that they don't \emph{necessarily} have applicability to the
+physical sciences. However, they are often quite beautiful and/or significant
+within pure mathematics.
 \end{abstract}
 
 \tableofcontents
@@ -122,17 +128,28 @@ have applicability to the physical sciences. However, they are often quite beaut
 Many symbols of set theory and boolean logic are useful beyond their original applications.
 In this section, I will be explaining the meaming of those symbols which are used here which you may not have encountered previously.
 \begin{itemize}
-\item A \textit{set} of things is denoted by curly braces. E.g.\ The set of natural numbers $\mathbb{N} = \Bqty{0, 1, 2, 3, \ldots}$. \\
-\item The symbol $\in$ means ``in'' or ``is an element of''. For example, the statement $2 \in \mathbb{N}$ is true, while $ -3 \in \mathbb{N}$ is not.
-\item The symbol $\forall$ means ``for all''. For example, $\forall x \in \mathbb{N} ~ x > -1$ is a true statement. \\
-\item The symbol $\Rightarrow$ means ``implies'', that is, ``$p \Rightarrow r$'' is to be read as ``if $p$ is true, then $q$ is also true''.
+\item A \textit{set} of things is denoted by curly braces. E.g.\ The set of
+	natural numbers $\mathbb{N} = \Bqty{0, 1, 2, 3, \ldots}$. \\
+\item The symbol $\in$ means ``in'' or ``is an element of''. For example, the
+	statement $2 \in \mathbb{N}$ is true, while $ -3 \in \mathbb{N}$ is
+	not.
+\item The symbol $\forall$ means ``for all''. For example, $\forall x \in
+	\mathbb{N} ~ x > -1$ is a true statement. \\
+\item The symbol $\Rightarrow$ means ``implies'', that is, ``$p \Rightarrow
+	r$'' is to be read as ``if $p$ is true, then $q$ is also true''.
 Note that it states nothing about the status of $p$ if we are given the status of $q$,
 nor does it tell us the status of $q$ if $p$ is false. \\
-\item The symbol $\iff$ means ``if and only if''\footnote{``if and only if'' is often written as ``iff''}, that is, ``$p \iff r$'' is to be read as ``if and only if $p$ is true, then $q$ is also true'' \emph{and} ``if and only if $q$ is true, then $p$ is also true.'' Intuitively, this logically links $p$ and $q$.
-\item The symbol $\wedge$ means ``and''. A statement ``$P(x) \wedge Q(x)$'' is only true if \emph{both} $P(x)$ and $Q(x)$ are true statements. 
-E.g., $(5>3 \wedge 2 \neq 0)$ is true, while $(3>6 \wedge 4 = 4)$ is false. \\
+\item The symbol $\iff$ means ``if and only if''\footnote{``if and only if'' is
+	often written as ``iff''}, that is, ``$p \iff r$'' is to be read as
+	``if and only if $p$ is true, then $q$ is also true'' \emph{and} ``if
+	and only if $q$ is true, then $p$ is also true.'' Intuitively, this
+	logically links $p$ and $q$.
+\item The symbol $\wedge$ means ``and''. A statement ``$P(x) \wedge Q(x)$'' is
+	only true if \emph{both} $P(x)$ and $Q(x)$ are true statements. 
+	E.g., $(5>3 \wedge 2 \neq 0)$ is true, while $(3>6 \wedge 4 = 4)$ is false. \\
 \item We can build sets by using \textit{set builder notation}.
-The notation works as follows: a set $S$ of elements that satisfy a condition is denoted 
+	The notation works as follows: a set $S$ of elements that satisfy a condition
+	is denoted 
 \[
 	S = \Bqty{\text{Element}~|~\text{Condition on element}}.
 \]
@@ -173,7 +190,7 @@ If the above limit exists, the series is \textit{convergent}, while if it doesn'
 \begin{definitionSR}
 A \textit{geometric series} is one where terms are related by a common ratio $r$. The general geometric series up to order $N$ could be expressed as
   \[
-      S_N = a + ar + ar^2 + \cdots + ar^N = S_N
+      S_N = a + ar + ar^2 + \cdots + ar^N
   \]
 The formula for a finite geometric series is
   \begin{equation}
@@ -194,7 +211,8 @@ The \textit{remainder} $R_N$ is the difference between the infinite series $S$ a
 \]
 \end{definitionSR}
 
-Series are a way of breaking something difficult into a sum of easy to handle terms.
+Series are a way of breaking something difficult into a sum of easy to handle
+terms.\todo{Expand this in relation to rest of course}
 
 \subsection{Tests for Convergence}
 
@@ -204,9 +222,9 @@ Series are a way of breaking something difficult into a sum of easy to handle te
 \]
 \end{definitionSR}
 
-Do note some general relative magnitudes of growth:
+Do note some general relative magnitudes of growth (assume $n, k \in \Integers$):
 \begin{equation}
-\log n \ll n \ll n^2 \ll \ldots \ll 2^n \ll n!
+\log n \ll n \ll n^k \ll \ll 2^n \ll n!
 \end{equation}
 
 \subsubsection{Preliminary Test}
@@ -324,6 +342,7 @@ Given continuous functions $f(x)$ and $g(x)$, we say that $f(x) = (g(x))$ as $x 
 \]
 e.g.\ $x^2 = O(x^2)$ as $x \to 0$, $2\sin x = O(1)$ as $x \to \infty$, etc.
 \end{definitionSR}
+\todo{Condsider changing examples}
 
 The rules for manipulating the notation is as follows:
 
@@ -356,7 +375,10 @@ R_N(x) &= f(x) - \left( f(x) + (x-a)f'(a) + \cdots + (x-a)^N \frac{f^{(N)}(a)}{N
 &= \frac{(x-a)^{N+1}f^{(N+1)}(c)}{(N+1)!}
 \end{align}
 
-for some $c \in [a,x]$. This is known as \textit{Taylor's Theorem}. However, it is not of much practical use, as we do not have a formula for $c$.
+for some $c \in [a,x]$. This is known as \textit{Taylor's Theorem}. However, it
+is not of much practical use, as we do not have a formula for
+$c$.
+\todo{However, useful for error bounds}
 
 In the case where the power series coefficients are \emph{decreasing} and \emph{non-negative}, on the interval $x \in (-1,1)$ we can use the formula
 \begin{equation}
@@ -384,9 +406,14 @@ In the case where the (not necessarily power) series is \emph{alternating}, and 
 \subsection{Inner Product Spaces}
 
 \begin{definitionSR}
-An \textit{inner product} is a billinear map that takes two vectors of a vector space and returns a scalar of a field $F$ (in almost all cases, $F=\Reals$ or $F=\Complex$).
-In more symbolic notation, we have $\langle \cdot , \cdot \rangle : V \times V \to F$. A billinear map qualifies as an inner product if all of the following conditions are
-met\footnote{Where $z^*$ is the complex conjugate of $z$, also written as $\bar{z}$. For more information, see Section~\ref{ComplexNumbers}.}:
+An \textit{inner product} is a billinear map that takes two vectors of a vector
+space and returns a scalar of a field $F$ (where in these notes, $F=\Reals$ or
+$F=\Complex$).
+In more symbolic notation, we have $\langle \cdot , \cdot \rangle : V \times V
+\to F$. A billinear map qualifies as an inner product if all of the following
+conditions are
+met\footnote{Where $z^*$ is the complex conjugate of $z$, also written as
+$\bar{z}$. For more information, see Section~\ref{ComplexNumbers}.}:
 \begin{enumerate}
 \item $\braket{\ve{x}}{\ve{x}} \geq 0$ and $\braket{\ve{x}}{\ve{x}} = 0 \iff \ve{x} = \ve{0}$
 \item $\braket{a_1\ve{x}_1 + a_2\ve{x}_2}{\ve{y}} = a_1^*\braket{\ve{x}_1}{\ve{y}} + a_2^*\braket{\ve{x}_2}{\ve{y}}$
@@ -491,7 +518,8 @@ An \textit{orthogonal matrix} is a real matrix which has the following (mutually
 \end{definitionSR}
 
 \begin{theoremSR}
-	If $A$ is \textit{symmetric} (i.e.\ $A = A^T$), then it also has the following properties:
+	If a matrix $A$ (with real entries) is \textit{symmetric} (i.e.\ $A =
+	A^T$), then it also has the following properties:
 	\begin{enumerate}
 	\item It is diagonalizable as $A=QDQ^T$, where $D$ is a diagonal matrix and $Q$ is a orthogonal matrix.
 	\item Its basis is orthogonal.
@@ -657,7 +685,12 @@ Each line connecting two variables represents a derivative of the higher w.r.t.\
 \subsection{Complex Numbers}
 \label{ComplexNumbers}
 \begin{definitionSR}
-The \emph{imaginary unit}, denoted as $i$, is the solution to the following equation:
+	The \emph{imaginary unit}, denoted as $i$, is the
+	solution\footnote{Well, not exactly. The fact is, there are two
+	solutions to this equation, and we are picking one. But we could have
+	just as easily picked the other! If we replaced $i$ with $-i$ in every math
+	book, nothing would be incorrect (except maybe the spacing).} to the following
+	equation:
 \[
 i^2 = -1
 \]
@@ -812,7 +845,8 @@ $\Complex$. Thus, if we tried to create a function $\arg{z}$ such that
 if $z=e^{i \theta}$, $\arg{z} = \theta$,
 we would fail, as $\arg{z} = \theta + 2 \pi$ 
 is also perfectly valid.
-However, we \emph{can} define $\arg{z}$ as a ``\textit{multivalued} function.''
+However, we \emph{can} define $\arg{z}$ as a ``\textit{multivalued}
+function.''\todo{add notes about Riemann surfaces}
 Thus, for a given $z=e^{i\theta}$, $\arg{z} = \theta + 2n\pi$
 (where $n \in \Integers$).
 If we restrict the range of $\arg{z}$ to $[0, 2\pi)$, 
@@ -894,6 +928,40 @@ This can be used to easily generate useful identites such as
 \]
 TODO: Stuff about roots and logs
 \subsection{Complex Differentiation}
+For the purposes of this section, let us assume $f : \Complex \to \Complex$.
+Recall that the \textit{differentiation} is the approximation of a function by a
+linear function at a point.
+\begin{definitionSR}
+	The \textit{derivative} of $f$ at $z$ is
+	\begin{equation*}
+		f'(z) = \lim_{\Delta z \to 0} \frac{f(z + \Delta z) -
+		f(z)}{\Delta z}
+	\end{equation*}
+	where $\Delta z \equiv \Delta x + i \Delta y$.
+\end{definitionSR}
+The above definition implies that
+\begin{equation}
+	f(z + \Delta z) = f(z) + f'(z) \Delta z + o(\Delta z)
+\end{equation}
+The usual rules apply to complex differentiation:
+\begin{itemize}
+	\item $(f + g)' = f' + g'$
+	\item $(fg)' = f'g + fg'$ 
+	\item $f(g(z))' = f'(g(z))g'(z)$ (assuming derivatives exist)
+\end{itemize}
+Many derivatives take forms similar to their real counterparts, e.g.\ $(z^2)' =
+2z$, $(e^z)' = e^z$. 
+
+\missingfigure{Paths of approach for limit in derivative def.}
+However, not all functions are differentiable. We must consider the approach
+path for the point at which we are differentiating. For example, consider the
+function $f(z) = \conjugate{z}$, equivalent to the map $x+iy \mapsto x-iy$:
+\[
+	\lim_{\Delta z \to 0} \frac{\conjugate{z + \Delta z} -
+	\conjugate{z}}{\Delta z} = \lim_{\Delta z \to 0}
+	\frac{\conjugate{\Delta z}}{\Delta z}
+\]
+
 \subsubsection{Cauchy-Riemann Equations}
 \subsection{Contour Integration}
 \subsection{Residue Calculus}
