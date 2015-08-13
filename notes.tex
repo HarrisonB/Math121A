@@ -33,6 +33,9 @@
 	linkcolor=blue,
 }
 
+\newcommand\todoin[2][]{\todo[inline, caption={2do}, #1]{
+\begin{minipage}{\textwidth-4pt}TODO: #2\end{minipage}}}
+
 \numberwithin{equation}{subsection}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -506,7 +509,7 @@ From the above, we can see
 To \textit{diagonalize} a matrix $A$ is to express it as $A=CD\inv{C}$, where
 $C$ is an invertible matrix and $D$ is a diagonal matrix.
 \end{definitionSR}
-TODO: How to diagonalize a matrix.
+\todoin{How to diagonalize a matrix}
 
 \begin{definitionSR}
 An \textit{orthogonal matrix} is a real matrix which has the following (mutually equivalent) properties:
@@ -953,8 +956,13 @@ Many derivatives take forms similar to their real counterparts, e.g.\ $(z^2)' =
 2z$, $(e^z)' = e^z$. 
 
 \missingfigure{Paths of approach for limit in derivative def.}
-However, not all functions are differentiable. We must consider the approach
-path for the point at which we are differentiating. For example, consider the
+However, not all functions are differentiable. 
+
+When we defined the limit included in the definition of the complex derivative, we appeared to treat
+the difference $\Delta z$  identically to the difference $\Delta x$ of the limit in the definition of the real derivative.
+However, while with real limits, we are only navigating the real number line, i.e.\ there are only two directions: positive or negative. With $\Delta z$, we are working with the complex plane: there are many ways for $\Delta z$ to diminish to zero, as there are many ways one can approach the point $z$ at which we are differentiating. If following different paths approach different values, the limit doesn't exist---just like how real limits don't exist if the left hand and right hand limits don't agree. 
+
+For example, consider the
 function $f(z) = \conjugate{z}$, equivalent to the map $x+iy \mapsto x-iy$:
 \[
 	\lim_{\Delta z \to 0} \frac{\conjugate{z + \Delta z} -
@@ -962,6 +970,36 @@ function $f(z) = \conjugate{z}$, equivalent to the map $x+iy \mapsto x-iy$:
 	\frac{\conjugate{\Delta z}}{\Delta z}
 \]
 
+Let us now go through two different approaches towards the point $z$:
+\begin{itemize}
+	\item $\Delta z \to 0$ horizontally: $\Delta z = \Delta x$, $\Delta x \to 0$
+	\[
+		\lim_{\Delta x \to 0} \frac{\conjugate{\Delta x}}{\Delta x} = 
+		\lim_{\Delta x \to 0} \frac{\Delta x}{\Delta x} = \lim_{\Delta x \to 0} 1 = 1
+	\] 
+	\item $\Delta z \to 0$ vertically: $\Delta z = i\Delta y$, $\Delta y \to 0$
+	\[
+		\lim_{\Delta y \to 0} \frac{\conjugate{i \Delta y}}{i \Delta y} = 
+		\lim_{\Delta y \to 0} \frac{- i\Delta y}{i\Delta y} = \lim_{\Delta y \to 0}-1 = -1
+	\]
+\end{itemize}
+These results are not equal, therefore the limit does not exist. Thus, $f(z)=\conjugate{z}$ is not differentiable.
+But why is that the case? What is it about the function
+$f(z)=\conjugate{z}$ that makes it different?
+
+To look at this from another angle, consider the function\footnote{Thanks are owed to the responses \href{http://math.stackexchange.com/questions/180849/why-is-the-complex-number-z-abi-equivalent-to-the-matrix-form-left-begins}{here}.} $G : \Reals^2 \to \Reals^2$, equivalent to the map
+\[
+\bmqty{x \\ y} \mapsto \bmqty{x \\  -y}
+\] 
+This transformation can be written as the matrix
+\[
+G = \bmqty{1 & 0 \\ 0 & -1}
+\]
+as
+\[
+G\pqty{\bmqty{x \\ y} }= \bmqty{1 & 0 \\ 0 & -1} \bmqty{x \\ y}  = \bmqty{x \\ -y} .
+\]
+It can be shown that multiplication by a complex number $a + bi$ 
 \subsubsection{Cauchy-Riemann Equations}
 \subsection{Contour Integration}
 \subsection{Residue Calculus}
