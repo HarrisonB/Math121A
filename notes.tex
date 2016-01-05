@@ -1032,6 +1032,23 @@ series about a complex number $z_0$ like
 	\conjugate{z_0 + \Delta z} &= \conjugate{z_0} + f'(z_0)\Delta z + \cdots
 \end{align*}
 \subsubsection{Cauchy-Riemann Equations}
+Suppose $f:\Complex \to \Complex$, $f(x+iy) = u(x,y) + i v(x,y)$, 
+and $f$ is differentiable at $z=x+iy$. 
+
+By these assumptions, the limit
+\[
+\lim_{\Delta z \to 0} \frac{f(z+\Delta z) - f(z)}{\Delta z}
+\] exists for any approach towards $z$ and its value is 
+independent of that approach.
+If we examine the horizontal and vertical approaches, 
+we derive the Cauchy-Riemann equations:
+\begin{align}
+\pdv{u}{x} &= \pdv{v}{y}\\
+\pdv{v}{x} &= -\pdv{u}{y}.
+\end{align}
+Thus, satisfying the equations above is a \emph{necessary} condition for
+differentiability.  As it turns out, satisfying the Cauchy-Riemann equations
+is also a \emph{sufficient} condition for differentiability.
 \subsection{Contour Integration}
 \subsection{Residue Calculus}
 \section{Harmonic Analysis}
