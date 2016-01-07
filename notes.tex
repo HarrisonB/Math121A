@@ -12,6 +12,10 @@
 \usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.markings}
 \graphicspath{ {images/} }
 \usepackage{physics}
 \usepackage{subcaption}
@@ -102,6 +106,10 @@
 
 
 	\begin{document}
+	\tikzset{->-/.style={decoration={
+	markings,
+	mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+
 	\maketitle
 
 	\begin{abstract}
@@ -821,7 +829,7 @@ Or, equivalently
 	z \conj{z} = \abs{z}^2
 \end{equation}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\caption{The complex number $z$ in polar coordinates}
 	\label{fig:polar}
@@ -1049,7 +1057,158 @@ we derive the Cauchy-Riemann equations:
 Thus, satisfying the equations above is a \emph{necessary} condition for
 differentiability.  As it turns out, satisfying the Cauchy-Riemann equations
 is also a \emph{sufficient} condition for differentiability.
+
+A side-effect of the Cauchy-Riemann equations is that both the functions $u$ and $v$
+must satisfy Laplace's equation:
+\begin{align}
+\pdv[2]{u}{x} + \pdv[2]{u}{y} &= 0\\
+\pdv[2]{v}{x} + \pdv[2]{v}{y} &= 0
+\end{align}
+
+Differentiability generally depends upon the domain we are inspecting.
+For functions of a real variable, we generally discuss intervals.
+For functions of a \emph{complex} variable, we instead use \textit{disks}.
+\begin{definitionSR}
+An \textit{open disk} is a subset of the complex plane
+\[
+\Bqty{z: (z-a)<r} \subseteq \Complex
+\]
+for some $a,r$. By contrast, a \textit{closed disk} would be
+\[
+\Bqty{z: (z-a)\leq r} \subseteq \Complex.
+\]
+\end{definitionSR}
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{.4\textwidth}
+\begin{tikzpicture}
+\coordinate (a) at (2.3,1.2);
+\filldraw [black,dashed, fill=black!10] (a) circle (1);
+%\draw [color=black, arrows={->[length=2]}] (0,0) -- (a) node [right] {$a$}; 
+\filldraw [color=black] (a) circle (1pt) node [right] {$a$};
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (0,3) node [above] {$\Im$};
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (4,0) node [right] {$\Re$}; 
+\draw [color=black, rotate around={20:(a)}] (a) -- ($ (a) + (0,1) $) node [midway,right] {$r$};
+\end{tikzpicture}
+\caption{Open disk}
+\end{subfigure}
+~~
+\begin{subfigure}[b]{.4\textwidth}
+\begin{tikzpicture}
+\coordinate (a) at (2.3,1.2);
+\filldraw [black, fill=black!10] (a) circle (1);
+%\draw [color=black, arrows={->[length=2]}] (0,0) -- (a) node [right] {$a$}; 
+\filldraw [color=black] (a) circle (1pt) node [right] {$a$};
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (0,3) node [above] {$\Im$};
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (4,0) node [right] {$\Re$}; 
+\draw [color=black, rotate around={20:(a)}] (a) -- ($ (a) + (0,1) $) node [midway,right] {$r$};
+\end{tikzpicture}
+\caption{Closed disk}
+\end{subfigure}
+\end{figure}
+
+\begin{theoremSR}
+If $f$ is differentiable in a disk containing $z$,
+\begin{enumerate}
+\item $f$ is infinitely differentiable.
+\item $f(z+\Delta z) = \sum_{n=0}^\infty \frac{f^{(n)}(z)}{n!} (\Delta z)^n$
+converges absolutely in the disk, that is, the function is equal to its Taylor
+series, and thus, is ``analytic''.
+\end{enumerate}
+\end{theoremSR}
+The above theorem demonstrates that differentiable functions are incredibly
+well behaved, and that this ``good behavior'' is a local property.
 \subsection{Contour Integration}
+For functions $f:\Reals \to \Reals$ and $f:\Reals \to \Complex$ we integrate
+over intervals (e.g.\ $[a,b]$). For functions $f:\Complex \to \Complex$, we
+integrate over \textit{curves}.
+\begin{definitionSR}
+A \textit{curve} is a differentiable function $\gamma : [a,b] \to \Complex$
+where $\gamma'(t) \neq 0$. If $\gamma$ doesn't intersect
+itself\footnote{intersections would be cases where $\gamma(t_1) = \gamma(t_2)$
+for $t_1\neq t_2$} (except possibly at endpoints), then the curve is \textit{simple}.
+
+Integration along $\gamma$ is simply
+\[
+\int_\gamma f(z)\dd{z} = \int_a^b f(\gamma(t))\gamma'(t)\dd{t},
+\]
+noting that $\dd{z} = \gamma'(t)\dd{t}$.
+\end{definitionSR}
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{.4\textwidth}
+\begin{tikzpicture}
+\coordinate (a) at (2.3,1.2);
+\draw[
+decoration={markings, mark=at position 0.625 with {\arrow{>}}},
+postaction={decorate}]
+ (a) circle (1);
+%\draw [color=black, arrows={->[length=2]}] (0,0) -- (a) node [right] {$a$}; 
+\node at ($ (a) - (1,0) $) [label=left:$\gamma$] {};
+\filldraw [color=black] (a) circle (1pt) node [right] {$a$};
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (0,3) node [above] {$\Im$};
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (4,0) node [right] {$\Re$}; 
+\draw [color=black, rotate around={20:(a)}] (a) -- ($ (a) + (0,1) $) node [midway,right] {$r$};
+
+\end{tikzpicture}
+\caption{$\gamma(t) = a + re^{it}$, $(t \in [0,2\pi])$}
+\end{subfigure}
+~~
+\begin{subfigure}[b]{.4\textwidth}
+\begin{tikzpicture}
+\coordinate (z1) at (.5,1);
+\coordinate (z2) at (3.8,2.5);
+\draw [->-=.5] (z1) -- (z2) node [midway, below] {$\gamma$};
+\filldraw [color=black] (z1) circle (1pt) node [above] {$z_1$};
+\filldraw [color=black] (z2) circle (1pt) node [right] {$z_2$};
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (0,3) node [above] {$\Im$};
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (4,0) node [right] {$\Re$}; 
+\end{tikzpicture}
+\caption{$\gamma(t) = (1-t)z_1 + tz_2$, $(t \in [0,1])$}
+\end{subfigure}
+\caption{Examples of curves}
+\end{figure}
+\begin{definitionSR}
+A \textit{contour} is a concatenation of a finite number 
+of simple curves meeting at their endpoints. If it does not intersect 
+itself, it is a \textit{simple contour}.
+\end{definitionSR}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{.4\textwidth}
+\begin{tikzpicture}
+\coordinate (z1) at (.5,1);
+\coordinate (z2) at (2.1,.3);
+\coordinate (z3) at (3.8,2.5);
+\draw [->-=.5] (z1) to [bend left] node [midway, below] {$\gamma_1$} (z2);
+\draw [->-=.5] (z2) to [bend left] node [midway, right] {$\gamma_2$} (z3);
+\filldraw [color=black] (z1) circle (1pt);
+\filldraw [color=black] (z2) circle (1pt);
+\filldraw [color=black] (z3) circle (1pt);
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (0,3) node [above] {$\Im$};
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (4,0) node [right] {$\Re$}; 
+\end{tikzpicture}
+\caption{Example of simple contour $C=\gamma_1 + \gamma_2$}
+\end{subfigure}
+\begin{subfigure}[b]{.4\textwidth}
+\begin{tikzpicture}
+\coordinate (z1) at (.5,1);
+\coordinate (z2) at (2.1,.3);
+\coordinate (z3) at (3.8,2.5);
+\draw [->-=.5] (z1) to [bend right] node [midway, above] {$\gamma_3$} (z2);
+\draw [->-=.5] (z2) to [bend right] node [midway, right] {$\gamma_2$} (z3);
+\draw [->-=.5] (z3) to [bend right] node [midway, below] {$\gamma_1$} (z1);
+\filldraw [color=black] (z1) circle (1pt);
+\filldraw [color=black] (z2) circle (1pt);
+\filldraw [color=black] (z3) circle (1pt);
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (0,3) node [above] {$\Im$};
+\draw [color=black, arrows={->[length=3]}] (0,0) -- (4,0) node [right] {$\Re$}; 
+\end{tikzpicture}
+\caption{Example of simple, closed, positively oriented contour $C=\gamma_1 + \gamma_2 + \gamma_3$}
+\end{subfigure}
+\caption{Examples of contours}
+\end{figure}
 \subsection{Residue Calculus}
 \section{Harmonic Analysis}
 \label{HarmonicAnalysis}
