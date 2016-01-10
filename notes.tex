@@ -16,6 +16,7 @@
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.markings}
+\usetikzlibrary{hobby}
 \graphicspath{ {images/} }
 \usepackage{physics}
 \usepackage{subcaption}
@@ -106,9 +107,14 @@
 
 
 	\begin{document}
-	\tikzset{->-/.style={decoration={
-	markings,
-	mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+	\tikzset{%
+		->-/.style={%
+			decoration={markings, mark=at position #1 with {\arrow{>}}}, postaction={decorate}
+		},
+		light fill/.style={%
+			fill=black!10%
+		}%
+	}
 
 	\maketitle
 
@@ -1048,7 +1054,7 @@ By these assumptions, the limit
 \lim_{\Delta z \to 0} \frac{f(z+\Delta z) - f(z)}{\Delta z}
 \] exists for any approach towards $z$ and its value is 
 independent of that approach.
-If we examine the horizontal and vertical approaches, 
+If we examine the horizontal and vertical approaches,\todo{Include proof} 
 we derive the Cauchy-Riemann equations:
 \begin{align}
 \pdv{u}{x} &= \pdv{v}{y}\\
@@ -1134,7 +1140,8 @@ Integration along $\gamma$ is simply
 \]
 noting that $\dd{z} = \gamma'(t)\dd{t}$.
 \end{definitionSR}
-\begin{figure}[h]
+See Figure~\ref{fig:curves} for examples of curves.
+\begin{figure}
 \centering
 \begin{subfigure}[b]{.4\textwidth}
 \begin{tikzpicture}
@@ -1167,13 +1174,21 @@ postaction={decorate}]
 \caption{$\gamma(t) = (1-t)z_1 + tz_2$, $(t \in [0,1])$}
 \end{subfigure}
 \caption{Examples of curves}
+\label{fig:curves}
 \end{figure}
 \begin{definitionSR}
 A \textit{contour} is a concatenation of a finite number 
 of simple curves meeting at their endpoints. If it does not intersect 
 itself, it is a \textit{simple contour}.
 \end{definitionSR}
-
+\begin{definitionSR}
+	A simple closed\footnote{That is, it ends where it starts.} contour is 
+	\textit{positively oriented} if the interior\footnote{The \textit{interior} 
+	is the bounded region defined by the contour.} is to the \emph{left} of the 
+	contour's direction (denoted by the arrow). Otherwise, the contour is 
+	\textit{negatively oriented}.
+\end{definitionSR}
+See Figure~\ref{fig:contours} for examples of contours.
 \begin{figure}[h]
 \centering
 \begin{subfigure}[b]{.4\textwidth}
@@ -1205,10 +1220,61 @@ itself, it is a \textit{simple contour}.
 \draw [color=black, arrows={->[length=3]}] (0,0) -- (0,3) node [above] {$\Im$};
 \draw [color=black, arrows={->[length=3]}] (0,0) -- (4,0) node [right] {$\Re$}; 
 \end{tikzpicture}
-\caption{Example of simple, closed, positively oriented contour $C=\gamma_1 + \gamma_2 + \gamma_3$}
+\caption{Example of a simple, closed, positively oriented contour $C=\gamma_1 + \gamma_2 + \gamma_3$}
 \end{subfigure}
 \caption{Examples of contours}
+\label{fig:contours}
 \end{figure}
+\begin{theoremSR}[Cauchy-Goursat Theorem]
+	If $f$ is analytic \emph{on} and \emph{inside} a simple closed closed
+	contour $C$, then
+	\[
+		\oint_C f(z)\dd{z} = 0.
+	\]
+\end{theoremSR}
+In general, to prove Cauchy-Goursat, one may use
+\begin{proof}
+	\todo{Proof of Cauchy-Goursat}
+\end{proof}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\filldraw [color=white!0, light fill] plot[smooth cycle, tension=.7]
+			coordinates {(.2,.2)  (4,.6)  (4.2,3)  (.3,2) };
+		\coordinate (z1) at (1,.5);
+		\coordinate (z2) at (3.8,2.5);
+		\node at (.6,1.4) {$R$};
+		\draw [->-=.5] (z1) to [bend left] node [midway, above] {$C_1$} (z2);
+		\draw [->-=.5] (z1) to [bend right] node [midway, below] {$C_2$} (z2);
+		\filldraw [color=black] (z1) circle (1pt) node [left] {$z_1$};
+		\filldraw [color=black] (z2) circle (1pt) node [right] {$z_2$};
+		\draw [color=black, arrows={->[length=3]}] (0,0) -- (0,3) node [above] {$\Im$};
+		\draw [color=black, arrows={->[length=3]}] (0,0) -- (4,0) node [right] {$\Re$}; 
+	\end{tikzpicture}
+	\caption{$\int_{z_1}^{z_2} f(z)\dd{z}$ is the same, regardless of which path
+	we take.}
+	\label{fig:pathind}
+\end{figure}
+One consequence of the Cauchy-Goursat theorem is that if $f$ is analytic
+on a \textit{simply connected}  region $R$ (that is, the region has no holes)
+and $z_1, z_2 \in R$, then 
+\[
+	\int_{C_1} f(z)\dd{z} = \int_{C_2} f(z)\dd{z}
+\]
+for any $C_1, C_2$ from $z_1$ to $z_2$. See Figure~\ref{fig:pathind} for a 
+visualization.
+\begin{proof}
+	Consider $C=C_1 - C_2$. $C$ is a closed simple contour; $f$ is analytic 
+	on $C$ and inside $C$.
+	\[
+		\int_{C_1} f(z)\dd{z} - \int_{C_2} f(z) \dd{z} = \oint_C f(z) \dd{z} = 0,
+	\]
+	by Cauchy-Goursat. Thus,	
+	\[
+		\int_{C_1} f(z)\dd{z} = \int_{C_2} f(z) \dd{z} 
+	\]
+\end{proof}
 \subsection{Residue Calculus}
 \section{Harmonic Analysis}
 \label{HarmonicAnalysis}
