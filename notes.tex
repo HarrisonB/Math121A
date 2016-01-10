@@ -849,22 +849,55 @@ representation of $z$, then
 	x &= r \cos{\theta} \\
 	y &= r \sin{\theta}
 \end{align}
-Using Euler's formula, which I will simply state here as 
+Using Euler's formula, which I will simply state here as\footnote{If you
+haven't seen this before, go derive it by Taylor expanding $e^{i\theta}, \sin
+\theta, \cos \theta$.} 
 \[
 	e^{i \theta} = \cos{\theta} + i \sin{\theta},
 \]
 we can also express the complex number $z$ as $z=r e^{i \theta}$.
+Euler's formula has many powerful results that are quite simple to derive. One
+of the most trivial is De Moive's Theorem.
+\begin{theoremSR}[De Moive's Theorem]
+	\begin{align*}
+		e^{in\theta} &= (\cos{\theta} + i \sin{\theta})^n \\
+		\cos{n\theta} + i \sin{n\theta} &= (\cos{\theta} + i \sin{\theta})^n
+	\end{align*}
+\end{theoremSR}
+This can be used to easily generate useful identites such as 
+\[
+	\cos{3\theta} = \cos^3{\theta} - 3\cos{\theta}\sin^2{\theta}
+\]
+This $re^{i\theta}$ notation helps to elucidate the geometry of mathematical
+operations in $\Complex$: 
+\[
+	z_1=r_1 e^{i\theta_1}, z_2=r_2 e^{i\theta_2}
+	\Rightarrow z_1 z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)},
+\]
+ or in other words,
+when multiplying two complex numbers, we multiply their magnitudes and 
+add their angles from $\Re$ to get the complete product. Thus, multiplying
+a complex number by $e^{i\theta}$ will simply rotate it (while preserving its
+length).\footnote{Note that if $in\theta = i\theta \mod 2\pi$, repeated
+rotations can loop back upon themselves (e.g.\ $\pqty{e^{i\frac{\pi}{2}}}^4 z =
+z$), while if $in\theta \neq i\theta \mod 2\pi$, $\pqty{e^{i\theta}}^n z\neq z$
+for $n\neq0$. (The previous assumes $n\in\mathbb{Z}$).} Additionally,
+\[z=re^{i\theta} \Rightarrow \inv{z} = re^{-i\theta},\]
+or in other words, when inverting complex numbers, we simply negate the angle
+from $\Re$, which makes perfect sense considering that $\inv{z}$ is just a
+scaled $\conj{z}$. 
+
 You might note that $\theta$ (known as the \textit{argument} of $z$)
 is not unique for a given $z$. For example,
 the points (expressed as $(r,\theta)$ coordinate pairs)
 $(2, \frac{\pi}{4})$ and $(2, \frac{9\pi}{4})$ refer to the same point in 
 $\Complex$. Thus, if we tried to create a function $\arg{z}$ such that
-if $z=e^{i \theta}$, $\arg{z} = \theta$,
+if $z=re^{i \theta}$, $\arg{z} = \theta$,
 we would fail, as $\arg{z} = \theta + 2 \pi$ 
 is also perfectly valid.
 However, we \emph{can} define $\arg{z}$ as a ``\textit{multivalued}
 function.''\todo{add notes about Riemann surfaces}
-Thus, for a given $z=e^{i\theta}$, $\arg{z} = \theta + 2n\pi$
+Thus, for a given $z=re^{i\theta}$, $\arg{z} = \theta + 2n\pi$
 (where $n \in \Integers$).
 If we restrict the range of $\arg{z}$ to $[0, 2\pi)$, 
 it becomes an honest-to-god \emph{function}, which we denote as $\Arg{z}$.
@@ -874,6 +907,22 @@ The functions $\arg{z}$ and $\Arg{z}$ have the following properties:
 	\item $\arg{z_1 z_2} = \arg{z_1} + \arg{z_2}$
 	\item $\arg{\inv{z}} = - \arg{z}$
 \end{itemize}
+which fits with our geometric understanding of $\Complex$ that we developed 
+earlier.
+
+Roots and fractional powers are not too much more compicated when dealing with 
+complex numbers. Just as the root of a real number may have more
+than one answer (e.g.$\sqrt{64} = 8 \text{or} -8$), so too may the root of a 
+complex number be multivalued. If $z = re^{i\theta}$,
+\begin{align*}
+	z^\frac{n}{m} = &r^\frac{n}{m} e^{i\frac{n\theta}{m}},\\ 
+					&r^\frac{n}{m} e^{i\frac{n\theta}{m} + \frac{2\pi}{m}},\\ 
+					&r^\frac{n}{m}e^{i\frac{n\theta}{m} + \frac{2\pi(2)}{m}},\\ 
+					&\ldots,\\
+					&r^\frac{n}{m} e^{i\frac{n\theta}{m} + \frac{2\pi(m-1)}{m}}
+\end{align*}
+Thus, there are $m$ distinct values for the term $z^\frac{n}{m}$.\footnote{Assuming
+rational powers, i.e.\ $m,n \in \mathbb{N}$.}
 \subsection{Complex Series, $e^z$, and the Logarithm}
 Overall, complex series behave similarly to their real counterparts.
 Let's define the infinite complex series $S$ as 
@@ -932,18 +981,30 @@ test.
 Thus, the series converges regardless of the value of $z$, 
 and therefore, converges everywhere on $\Complex$.
 
-Now, just to get some useful knowledge out of the way\ldots
-\begin{theoremSR}[De Moive's Theorem]
-	\begin{align*}
-		e^{in\theta} &= (\cos{\theta} + i \sin{\theta})^n \\
-		\cos{n\theta} + i \sin{n\theta} &= (\cos{\theta} + i \sin{\theta})^n
-	\end{align*}
-\end{theoremSR}
-This can be used to easily generate useful identites such as 
-\[
-	\cos{3\theta} = \cos^3{\theta} - 3\cos{\theta}\sin^2{\theta}
-\]
-TODO: Stuff about roots and logs
+For the task of visualizing $e^z$, we are stuck with a problem. We are mapping
+a 2D space to another 2D space, and unfortunately, we humans cannot visualize
+the 4D space.\footnote{Elon Musk, I'm looking at you to come up with a solution
+to this.} This issue will arise with any complex to complex functions and thus,
+we must be clever with how we plot them.
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{.4\textwidth}
+		\includegraphics[width=\textwidth]{exponential_Re}
+		\caption{$\ReP{e^{x+iy}}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{.4\textwidth}
+		\includegraphics[width=\textwidth]{exponential_Im}
+		\caption{$\ImP{e^{x+iy}}$}
+	\end{subfigure}
+	\caption{The function $e^z$.}
+	\label{fig:Re_Im_exp}
+\end{figure}
+First, we may to plot the real and imaginary parts, like in
+Figure~\ref{fig:Re_Im_exp}. However, this does not yield a great deal of
+new insight.
+
+Another approach we may take is restrict ourselves to important 1D subsets of  
+$\Complex$.
 \subsection{Complex Differentiation}
 For the purposes of this section, let us assume $f : \Complex \to \Complex$.
 Recall that the \textit{differentiation} is the approximation of a function by a
