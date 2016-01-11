@@ -1002,9 +1002,68 @@ we must be clever with how we plot them.
 First, we may to plot the real and imaginary parts, like in
 Figure~\ref{fig:Re_Im_exp}. However, this does not yield a great deal of
 new insight.
-
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{.4\textwidth}
+		\begin{tikzpicture}[baseline=(origin.base)]
+		\node (origin) at (0,0) {};
+		\draw [color=black!50, arrows={<->[length=3]}] (0,-3) -- (0,3) node [above] {$\Im$};
+		\draw [color=black!50, arrows={<->[length=3]}] (-2,0) -- (2,0) node [right] {$\Re$}; 
+		\draw [color=black,dotted,very thick] (0,-2.9) -- (0,2.9);
+		\draw [color=black] (-1.9,.6) node [above right] {$z=x+it$} -- (1.9,.6); 
+		\draw [color=black] (-1.9,1.6) node [above right] {$z=x+i(t+2\pi)$} -- (1.9,1.6); 
+		\draw [color=black, dashed] (1,-2.9) node [above right] {$z=s+iy$} -- (1,2.9); 
+		\draw [color=black,very thick] (-1.9,0) -- (1.9,0);
+		\end{tikzpicture}
+		\caption{Input of $e^z$}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{.4\textwidth}
+		\begin{tikzpicture}[baseline=(origin.base)]
+		\node (origin) at (0,0) {};
+		\draw [color=black!50, arrows={<->[length=3]}] (0,-3) -- (0,3) node [above] {$\Im$};
+		\draw [color=black!50, arrows={<->[length=3]}] (-2,0) -- (2,0) node [right] {$\Re$}; 
+		\draw [color=black,very thick] (0,0) -- (1.9,0);
+		\draw [black,dotted,very thick] (0,0) circle (.6);
+		\filldraw [red!50] (.6,0) circle (1.5pt) node [below right] {1};
+		\draw [black,dashed] (0,0) circle (1.5);
+		\filldraw [red!50] (1.5,0) circle (1.5pt) node [below right] {$e^s$};
+		\draw [color=black, rotate around={60:(0,0)}] (0,0) -- (3.22,0);
+		\draw [color=black,arrows=->] (1,0) arc (0:60:1) node [midway, right] {$t$};
+		\end{tikzpicture}
+		\caption{Output of $e^z$}
+	\end{subfigure}
+	\caption{Each curve in the left plot represents a subset of $\Complex$ which
+		maps to a corresponding subset in the right plot. Note that $x$ and $y$
+	may vary, while $s$ and $t$ are (real) fixed values.}
+	\label{fig:exp_C_to_C}
+\end{figure}
 Another approach we may take is restrict ourselves to important 1D subsets of  
-$\Complex$.
+$\Complex$ and see where those map to via the function $e^z$. See
+Figure~\ref{fig:exp_C_to_C} for this visualization approach. Note that $e^z$ is
+very much \emph{not} one-to-one: for every horizontal line, all other horizontal
+lines $2\pi in$ above and below\footnote{where $n\in \mathbb{Z}$} map to the
+same values---i.e.\ $e^{x+iy} = e^{x+i(y+2\pi n)}$. This is very different from
+real function $e^x$. Thus, for the inverse of the exponential function, the
+logarithm, we will generate a multi-valued ``function.'' An actual inverse
+will require us to restrict our attention to a subset to the domain of $e^z$.
+
+Let us play with the properties of both of these inverses. The multi-valued 
+logarithm, denoted $z = \log w$ (where $w,z \in \Complex$), is the value such 
+that $e^z = w$. From the properties of the complex exponential, we find 
+\[
+	\log(w_1) + \log(w_2) = \log(w_1 w_2)
+\]
+which is the same property had by the real logarithm.
+
+If we work in polar coordinates, we
+get the following form:
+\begin{align*}
+	\log\pqty{re^{i\theta}} &= \log(r) + \log\pqty{e^{i\theta}}
+	\log\pqty{re^{i\theta}} &= \log(r) + i(\theta + 2\pi k),
+\end{align*}
+where $k\in \mathbb{Z}$. 
+
 \subsection{Complex Differentiation}
 For the purposes of this section, let us assume $f : \Complex \to \Complex$.
 Recall that the \textit{differentiation} is the approximation of a function by a
