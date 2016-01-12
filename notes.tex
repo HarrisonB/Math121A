@@ -49,7 +49,7 @@
 
 	\theoremstyle{remark}
 	\newtheorem*{remark}{Remark}
-
+	\newtheorem*{example}{Example}
 	\newenvironment{definitionSR}
 	{
 		\begin{siderules}
@@ -71,6 +71,7 @@
 	}
 
 	\DeclareMathOperator{\sign}{sign}
+	\DeclareMathOperator{\Log}{Log}
 	\newcommand{\Reals}{\mathbb{R}}
 	\newcommand{\Complex}{\mathbb{C}}
 	\newcommand{\Integers}{\mathbb{Z}}
@@ -834,7 +835,7 @@ Or, equivalently
 \begin{equation}
 	z \conj{z} = \abs{z}^2
 \end{equation}
-
+\subsubsection{Polar Coordinates}
 \begin{figure}[h!]
 	\centering
 	\caption{The complex number $z$ in polar coordinates}
@@ -886,7 +887,7 @@ for $n\neq0$. (The previous assumes $n\in\mathbb{Z}$).} Additionally,
 or in other words, when inverting complex numbers, we simply negate the angle
 from $\Re$, which makes perfect sense considering that $\inv{z}$ is just a
 scaled $\conj{z}$. 
-
+\label{argument}
 You might note that $\theta$ (known as the \textit{argument} of $z$)
 is not unique for a given $z$. For example,
 the points (expressed as $(r,\theta)$ coordinate pairs)
@@ -899,8 +900,18 @@ However, we \emph{can} define $\arg{z}$ as a ``\textit{multivalued}
 function.''\todo{add notes about Riemann surfaces}
 Thus, for a given $z=re^{i\theta}$, $\arg{z} = \theta + 2n\pi$
 (where $n \in \Integers$).
-If we restrict the range of $\arg{z}$ to $[0, 2\pi)$, 
-it becomes an honest-to-god \emph{function}, which we denote as $\Arg{z}$.
+All of these different values of $\arg z$ differ by multiples of $2\pi i$, 
+each belonging to different \textit{branches} of the $\arg z$.
+If we pick just one of those branches of $\arg{z}$, say,
+the branch with the range $[0, 2\pi)$, 
+it becomes an honest-to-god \emph{function}, which we denote as
+$\Arg{z}$.\footnote{This
+is very similar to the definition of $\arcsin \theta$.}
+This branch is so commonly used, it is known as the 
+\textit{principal branch}.\footnote{Note that another extremely common branch
+	to denote as the ``principal branch'' is the one with the branch
+$(-\pi,\pi]$. The decision of where to make this \textit{branch cut} is 
+completely arbitrary and does not affect any of the mathematics.}
 
 The functions $\arg{z}$ and $\Arg{z}$ have the following properties:
 \begin{itemize}
@@ -924,6 +935,7 @@ complex number be multivalued. If $z = re^{i\theta}$,
 Thus, there are $m$ distinct values for the term $z^\frac{n}{m}$.\footnote{Assuming
 rational powers, i.e.\ $m,n \in \mathbb{N}$.}
 \subsection{Complex Series, $e^z$, and the Logarithm}
+\subsubsection{Complex Series}
 Overall, complex series behave similarly to their real counterparts.
 Let's define the infinite complex series $S$ as 
 \begin{equation}
@@ -980,7 +992,7 @@ test.
 \end{align*}
 Thus, the series converges regardless of the value of $z$, 
 and therefore, converges everywhere on $\Complex$.
-
+\subsubsection{The Complex Exponential, $e^z$}
 For the task of visualizing $e^z$, we are stuck with a problem. We are mapping
 a 2D space to another 2D space, and unfortunately, we humans cannot visualize
 the 4D space.\footnote{Elon Musk, I'm looking at you to come up with a solution
@@ -1044,12 +1056,16 @@ Figure~\ref{fig:exp_C_to_C} for this visualization approach. Note that $e^z$ is
 very much \emph{not} one-to-one: for every horizontal line, all other horizontal
 lines $2\pi in$ above and below\footnote{where $n\in \mathbb{Z}$} map to the
 same values---i.e.\ $e^{x+iy} = e^{x+i(y+2\pi n)}$. This is very different from
-real function $e^x$. Thus, for the inverse of the exponential function, the
+real function $e^x$. 
+\subsubsection {The Complex Logarithm}
+
+For the inverse of the exponential function, the
 logarithm, we will generate a multi-valued ``function.'' An actual inverse
 will require us to restrict our attention to a subset to the domain of $e^z$.
 
 Let us play with the properties of both of these inverses. The multi-valued 
-logarithm, denoted $z = \log w$ (where $w,z \in \Complex$), is the value such 
+logarithm\footnote{We will denote the \emph{natural} logarithm as $\log z$.},
+denoted $z = \log w$ (where $w,z \in \Complex$), is the value such 
 that $e^z = w$. From the properties of the complex exponential, we find 
 \[
 	\log(w_1) + \log(w_2) = \log(w_1 w_2)
@@ -1062,8 +1078,52 @@ get the following form:
 	\log\pqty{re^{i\theta}} &= \log(r) + \log\pqty{e^{i\theta}}
 	\log\pqty{re^{i\theta}} &= \log(r) + i(\theta + 2\pi k),
 \end{align*}
-where $k\in \mathbb{Z}$. 
+where $k\in \mathbb{Z}$. This leads us to a definition:
+\begin{definitionSR}
+	If $z\neq0$ and $z = re^{i\theta}$
+	\[
+		\log z = \log re^{i\theta} = \log r + \arg w.
+	\]
+\end{definitionSR}
+Just as $\arg z$ is multivalued, so too is $\log z$. Making the same branch
+cut as we did to generate $\Arg z$ from $\arg z$, we get the \emph{function} of
+$\Log z$.
+\begin{definitionSR}
+	If $z\neq0$ and $z = re^{i\theta}$
+	\[
+		\Log z = \Log re^{i\theta} = \log r + \Arg z.
+	\]
+\end{definitionSR}
 
+The logirithm allows us to evaluate numbers raised to complex powers, which we'll
+see, may be multivalued just in the same manner as in the case of
+\hyperref[argument]{the argument} of a complex number.
+
+Recall that $a^b = e^{b \log a}$ (where $a,b\in\Complex$). The evaluation of 
+this expression is best done as series of examples:
+\begin{example}
+	Evaluate $i^{-i}$.\\
+	Solution:
+	\begin{align*}
+		i^{-i} &= e^{i\log(-i)}\\
+				&= e^{i \cdot i\qty(\frac{3\pi}{2} + 2\pi k)}\\
+				&= e^{-\pqty{\frac{3\pi}{2} + 2\pi k}}
+	\end{align*}
+	where $k\in\Integers$. Note that the expression takes on an
+	\emph{infinite} number of values!
+\end{example}
+\begin{example}
+	Evaluate $ \pqty{i-1}^{i+1}$.\\
+	Solution:
+	\begin{align*}
+		\pqty{i-1}^{i+1} &= e^{(i+1)\log(i-1)}\\
+		  &= e^{(i+1)\qty(\log{\frac{1}{\sqrt{2}}} + i\qty(\frac{3\pi}{4} + 2\pi k))}\\
+		  &= e^{\pqty{\frac{1}{2}\log{2} -\qty(\frac{3\pi}{4} + 2\pi k)}}
+		e^{i\pqty{\frac{1}{2}\log{2} + \frac{3\pi}{4} + 2\pi k}}
+	\end{align*}
+	where $k \in \Integers$. Note that the expression takes on an
+	\emph{infinite} number of values!
+\end{example}
 \subsection{Complex Differentiation}
 For the purposes of this section, let us assume $f : \Complex \to \Complex$.
 Recall that the \textit{differentiation} is the approximation of a function by a
