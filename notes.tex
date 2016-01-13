@@ -144,7 +144,7 @@
 	\section{Notation}
 	\subsection{Screen \& Print Notation}
 	Many symbols of set theory and boolean logic are useful beyond their original applications.
-	In this section, I will be explaining the meaming of those symbols which are used here which you may not have encountered previously.
+	In this section, I will be explaining the meaning of those symbols which are used here which you may not have encountered previously.
 	\begin{itemize}
 		\item A \textit{set} of things is denoted by curly braces. E.g.\ The set of
 			natural numbers $\mathbb{N} = \Bqty{0, 1, 2, 3, \ldots}$. \\
@@ -1103,7 +1103,7 @@ Recall that $a^b = e^{b \log a}$ (where $a,b\in\Complex$). The evaluation of
 this expression is best done as series of examples:
 \begin{example}
 	Evaluate $i^{-i}$.\\
-	Solution:
+	\textit{Solution}.
 	\begin{align*}
 		i^{-i} &= e^{i\log(-i)}\\
 				&= e^{i \cdot i\qty(\frac{3\pi}{2} + 2\pi k)}\\
@@ -1114,14 +1114,14 @@ this expression is best done as series of examples:
 \end{example}
 \begin{example}
 	Evaluate $ \pqty{i-1}^{i+1}$.\\
-	Solution:
+	\textit{Solution}.
 	\begin{align*}
 		\pqty{i-1}^{i+1} &= e^{(i+1)\log(i-1)}\\
 		  &= e^{(i+1)\qty(\log{\frac{1}{\sqrt{2}}} + i\qty(\frac{3\pi}{4} + 2\pi k))}\\
 		  &= e^{\pqty{\frac{1}{2}\log{2} -\qty(\frac{3\pi}{4} + 2\pi k)}}
 		e^{i\pqty{\frac{1}{2}\log{2} + \frac{3\pi}{4} + 2\pi k}}
 	\end{align*}
-	where $k \in \Integers$. Note that the expression takes on an
+	where $k \in \Integers$. Note that the expression also takes on an
 	\emph{infinite} number of values!
 \end{example}
 \subsection{Complex Differentiation}
@@ -1148,8 +1148,20 @@ The usual rules apply to complex differentiation:
 \end{itemize}
 Many derivatives take forms similar to their real counterparts, e.g.\ $(z^2)' =
 2z$, $(e^z)' = e^z$. 
-
-\missingfigure{Paths of approach for limit in derivative def.}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\coordinate (a) at (1.3,1.2);
+	\filldraw [color=black] (a) circle (1pt) node [below left] {$z$};
+	\draw [color=black, arrows={->[length=3]}] (0,0) -- (0,3) node [above] {$\Im$};
+	\draw [color=black, arrows={->[length=3]}] (0,0) -- (4,0) node [right] {$\Re$}; 
+	\draw [color=black, arrows={->[length=3]}] ($ (a) + (0,2) $) node [right] {Vertical} -- ($(a) + (0,.1)$);
+	\draw [color=black, arrows={->[length=3]}] ($ (a) + (2,0) $) node [above] {Horizontal} -- ($(a) + (.1,0)$);
+	\end{tikzpicture}
+	\caption{Different paths of approach towards a point $z$ in taking the limit
+	$\lim_{\Delta z \to 0}$. Note that these are just 2 approaches out
+	of an infinite number of possibilities.}
+\end{figure}
 However, not all functions are differentiable. 
 
 When we defined the limit included in the definition of the complex derivative,
@@ -1292,7 +1304,7 @@ for some $a,r$. By contrast, a \textit{closed disk} would be
 \caption{Closed disk}
 \end{subfigure}
 \end{figure}
-
+\todoin{Define a region}
 \begin{theoremSR}
 If $f$ is differentiable in a disk containing $z$,
 \begin{enumerate}
@@ -1413,8 +1425,8 @@ See Figure~\ref{fig:contours} for examples of contours.
 	\]
 \end{theoremSR}
 In general, to prove Cauchy-Goursat, one may use
-\begin{proof}
-	\todo{Proof of Cauchy-Goursat}
+\begin{proof}\\
+	\todoin{Proof of Cauchy-Goursat}
 \end{proof}
 
 \begin{figure}
@@ -1455,7 +1467,130 @@ visualization.
 		\int_{C_1} f(z)\dd{z} = \int_{C_2} f(z) \dd{z} 
 	\]
 \end{proof}
+\subsubsection{Cauchy Integral Formula}
+What about regions where a function is not analytic? 
+\begin{example}
+	Evaluate the contour integral
+	\[
+		\oint_C \frac{1}{z}\dd{z} 
+	\]
+	where $C$ is a positively oriented circle of radius $\rho$. \\
+	\textit{Solution}.
+	We note that we cannot use the Cauchy-Goursat theorem as $\frac{1}{z}$ is
+	not analytic at $z=0$. The simplest parametrization of the curve $C$ is
+	\[
+	\gamma(t) = \rho e^{it} \Rightarrow \gamma'(t) = \rho i e^{it}.
+	\]
+	From this, it's fairly easy to evaluate the integral	
+	\begin{align*}
+		\oint_C \frac{1}{z}\dd{z} &= \int_0^{2\pi} \frac{1}{\rho e^{it}} \rho i e^{it} \dd{t}\\
+								&= i \int_0^{2\pi} \dd{t}\\
+								&= 2\pi i.
+	\end{align*}
+\end{example}
+	Note that this value is completely independent of the radius $\rho$, so the
+	value of the integral is the same in the limit $\rho \to 0$. This will 
+	prove very important in just a moment. 
+
+	\begin{theoremSR}[Cauchy Integral Formula]
+		If $f$ is analytic on and inside a simple closed positively oriented
+		contour $C$, then for any $a \in R$, where $R$ is the interior of the 
+		curve, then
+		\[
+			f(a) = \frac{1}{2\pi i} \oint \frac{f(z)}{z-a} \dd{z}.
+		\]
+	\end{theoremSR}
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}
+		\coordinate (a) at (2.25,1.1);
+		\filldraw [color=black] (a) circle (1pt) node [left] {$a$};
+		\draw[decoration={markings, mark=between positions 0.2 and 0.7 step .5 with {\arrow{>}}},
+		postaction={decorate}] (2.2,1.7) arc (93:-258:.6);
+		\draw[decoration={markings, mark=between positions 0.2 and 0.7 step .5 with {\arrow{>}}},
+		postaction={decorate}] 
+		plot[smooth, tension=.4]
+		coordinates {(1.7,2.5) (.3,1.9) (.2,.2)  (3.5,.6) (4.2,3) (1.8,2.52) };
+		\draw[->-=.3] (1.8,2.52) -- (2.2,1.7) node [midway, right] {$A$}; 
+		\draw[->-=.3] (2.1,1.68) -- (1.7,2.5) node [midway, left] {$B$}; 
+		\coordinate (z1) at (1,.5);
+		\coordinate (z2) at (3.8,2.5);
+		\node at (1.2,1.1) {$-C'$};
+		\node at (4.6,3) {$C$};
+		\end{tikzpicture}
+		\caption{The contour $\Gamma$ referenced by the proof.}
+		\label{fig:cauchy_integral_formula}
+	\end{figure}
+	\begin{proof}
+		The closed contour $\Gamma$ is depicted in
+		Figure~\ref{fig:cauchy_integral_formula}, and is a sum of curves:
+		\[
+			\Gamma = C + A - C' + B
+		\]
+		where $-C$ refers to the curve $C'$ but oppositely oriented.
+		Suppose $f$ is a function analytic on and inside $\Gamma$. By
+		the Cauchy-Goursat Theorem,\footnote{as $a$ is on the exterior of $\Gamma$.}
+		\begin{align*}
+			\oint\limits_\Gamma \frac{f(z)}{z-a} \dd{z} &= 0\\
+			\int\limits_C \frac{f(z)}{z-a} \dd{z} +  \int\limits_A \frac{f(z)}{z-a} \dd{z} 
+			+ \int\limits_{-C'} \frac{f(z)}{z-a} \dd{z} + \int\limits_B \frac{f(z)}{z-a} \dd{z} &= 0\\
+			\int\limits_C \frac{f(z)}{z-a} \dd{z} +  \int\limits_A \frac{f(z)}{z-a} \dd{z} 
+			- \int\limits_{C'} \frac{f(z)}{z-a} \dd{z} + \int\limits_B \frac{f(z)}{z-a} \dd{z} &= 0.
+		\end{align*}
+		Now, if we make the cut smaller, we find that the curve $A$ approaches
+		$-B$:
+		\[
+			\int\limits_A \frac{f(z)}{z-a} \dd{z} + \int\limits_B
+			\frac{f(z)}{z-a} \dd{z} \to \int\limits_A \frac{f(z)}{z-a} \dd{z} -
+			\int\limits_A \frac{f(z)}{z-a} \dd{z} = 0
+		\]
+		So,
+		\begin{align*}
+			&\int\limits_C \frac{f(z)}{z-a} \dd{z} - \int\limits_{C'}
+			\frac{f(z)}{z-a} \dd{z} \to 0\\
+			&\int\limits_C \frac{f(z)}{z-a} \dd{z} = \int\limits_{C'} \frac{f(z)}{z-a}
+		\end{align*}
+		What the contour integral $I_\rho$ around $C'$? The simplest
+		parametrization of the curve is $\gamma(t) = a + \rho e^{it}\,
+		\pqty{t\in[0,2\pi]}$.  Using this parametrization, 
+		\[
+			I_\rho = \int_0^{2\pi} \frac{f\qty(a + \rho e^{it})}{a+e^{it}-a}
+			\rho i e^{it} \dd{t} = i \int_0^{2\pi} f\pqty{a + \rho e^{it}}
+			\dd{t}
+		\]
+		In the limit $\rho \to 0$, 
+		\begin{align*}
+			\lim_{\rho \to 0} I_\rho &= \lim_{\rho \to 0} i \int_0^{2\pi} f\pqty{a + \rho e^{it}} \dd{t} \\
+									 &= i \int_0^{2\pi} f(a) \dd{t} \\
+									 &= 2\pi i f(a)
+		\end{align*}
+		Thus,
+		\begin{align*}
+			2\pi i f(a) &= \oint\limits_C \frac{f(z)}{z-a} \dd{z}\\
+			f(a) &= \frac{1}{2\pi i}\oint\limits_C \frac{f(z)}{z-a} \dd{z}
+		\end{align*}
+	\end{proof}
+	The Cauchy Integral Formula has several significant consequences. Firstly,
+	it shows that for analytic functions, the value at any given point is
+	determined by the value at (not necessarily closely) surrounding points. 
+	It also puts conditions on a function's differentiability nearby a point
+	where it is analytic.
+	\begin{theoremSR}
+		If $f$ is analytic at $z$, then it's differentiable in a disk containing
+		$z$.
+	\end{theoremSR}
+	\begin{proof}
+		Writing the Cauchy Integral Formula with a simple swap of variables, we 
+		have
+		\[
+			f(z) = \frac{1}{2\pi i} \oint \frac{f(w)}{w-z} \dd{w}
+		\]
+		\todoin{Finish Proof}
+	\end{proof}
+
 \subsection{Residue Calculus}
+
+
 \section{Harmonic Analysis}
 \label{HarmonicAnalysis}
 \subsection{Fourier Series}
